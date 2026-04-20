@@ -5,8 +5,8 @@ const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const statusText = document.getElementById("status");
-const startBtn = document.getElementById("startBtn");
 
+const startBtn = document.getElementById("startBtn");
 const trainBtn = document.getElementById("trainBtn");
 const saveBtn = document.getElementById("saveBtn");
 const loadBtn = document.getElementById("loadBtn");
@@ -59,7 +59,7 @@ async function init() {
 
     // Enable load button if saved model exists
     if (localStorage.getItem("image-classifier-labels")) {
-        document.getElementById("loadBtn").disabled = false;
+        loadBtn.disabled = false;
     }
 }
 // Call init function
@@ -135,7 +135,7 @@ function addSample(label) {
     setStatus(`Added: ${label}`);
     updateCounts();
     // Enable the train button
-    document.getElementById("trainBtn").disabled = false;
+    trainBtn.disabled = false;
 }
 
 // Update sample counts on the buttons
@@ -150,7 +150,7 @@ function updateCounts() {
 // ===============================
 // Train Model (when the #trainBtn button is clicked)
 // ===============================
-document.getElementById("trainBtn").onclick = trainModel;
+trainBtn.onclick = trainModel;
 
 // Function to train the model
 async function trainModel() {
@@ -167,7 +167,7 @@ async function trainModel() {
  
     // Set the status and enable the save button
     setStatus("Model trained!");
-    document.getElementById("saveBtn").disabled = false;
+    saveBtn.disabled = false;
 
     // Clean up tensors
     xs.dispose();
@@ -301,9 +301,9 @@ async function resetModel() {
         localStorage.removeItem("image-classifier-labels");
     } catch (e) {}
     // Reset the UI and buttons
-    document.getElementById("trainBtn").disabled = true;
-    document.getElementById("saveBtn").disabled = true;
-    document.getElementById("loadBtn").disabled = true;
+    trainBtn.disabled = true;
+    saveBtn.disabled = true;
+    loadBtn.disabled = true;
     updateCounts();
     // Set status message
     setStatus("Model reset!");

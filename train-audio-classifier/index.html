@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Classifier</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Audio Classifier (Speech Commands)</h1>
+
+  <div class="panel">
+
+    <!-- LEFT -->
+    <div class="col">
+      <div class="camView">
+        <h2>Live Prediction</h2>
+        <div id="output">Waiting...</div>
+        <hr>
+        <p>The prediction shown will be from the pre-trained model until you train or load your own.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col">
+      <div id="status">Model loading...</div>
+
+      <h2>1. Start Microphone</h2>
+      <button id="startBtn" disabled>Start Microphone</button>
+
+      <h2>2. Save Samples For Training</h2>
+      <p>Click to record ~1 second</p>
+
+      <button data-label="clap" class="sampleBtn" disabled>Add Clap (0 Samples)</button>
+      <button data-label="noise" class="sampleBtn" disabled>Add Noise (0 Samples)</button>
+
+      <h2>3. Train / Save / Load A Model</h2>
+      <button id="trainBtn" disabled>Train & Predict</button>
+      <button id="saveBtn" disabled>Save</button>
+      <button id="loadBtn" disabled>Load</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

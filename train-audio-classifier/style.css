@@ -1,0 +1,64 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: #E31C79;
+}
+
+.panel {
+    display: inline-flex;
+    border: 4px solid #E31C79;
+    border-radius: 8px;
+}
+
+.col {
+    flex: 1;
+    padding: 20px;
+}
+
+.col:first-child {
+    border-right: 4px solid #E31C79;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 1028px) {
+    .panel {
+        flex-direction: column;
+    }
+
+    .col:first-child {
+        border-right: none;
+        border-bottom: 4px solid #E31C79;
+    }
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+}
+
+#status {
+    color: #E31C79;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+}
+
+/* Highlight animation */
+.new {
+    animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: yellow; }
+    100% { background-color: transparent; }
+}
